@@ -1,0 +1,141 @@
+// Grid Layout 
+// Jesús Amador
+$count-columns: 12;
+$max-width-container: 1260px;
+// xxl variables 
+$grid-xxl-sideMargin: 80px;
+$grid-xxl-breakpoint: 1400px;
+// xl variables 
+$grid-xl-sideMargin: 70px;
+$grid-xl-breakpoint: 1200px;
+// lg variables 
+$grid-lg-sideMargin: 58px;
+$grid-lg-breakpoint: 992px;
+// md variables 
+$grid-md-sideMargin: 45px;
+$grid-md-breakpoint: 768px;
+// sm variables 
+$grid-sm-sideMargin: 32px;
+$grid-sm-breakpoint: 576px;
+// pixels to % variables
+$xxl-grid-width: 100% - (($grid-xxl-sideMargin * 2 / $grid-xxl-breakpoint) * 100%);
+$xl-grid-width: 100% - (($grid-xl-sideMargin * 2 / $grid-xl-breakpoint) * 100%);
+$lg-grid-width: 100% - (($grid-lg-sideMargin * 2 / $grid-lg-breakpoint) * 100%);
+$md-grid-width: 100% - (($grid-md-sideMargin * 2 / $grid-md-breakpoint) * 100%);
+$sm-grid-width: 100% - (($grid-sm-sideMargin * 2 / $grid-sm-breakpoint) * 100%);
+$colors: (red, orange, yellow, green, blue, purple);
+@for $i from 1 through 12 {
+    div:nth-child(#{length($colors)}n+#{$i}) {
+        background: lighten(nth($colors, random(length($colors))), 20%);
+        height: 100px;
+    }
+}
+
+@mixin container {
+    display: grid;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: $max-width-container;
+    width: 90%;
+    grid-template-columns: repeat($count-columns, 1fr);
+}
+
+@mixin column-span($name: "") {
+    @for $i from 1 through $count-columns {
+        &-#{$name}#{$i} {
+            grid-column: span $i;
+        }
+    }
+}
+
+@mixin column-start($name: "") {
+    @for $i from 1 through $count-columns {
+        &-#{$name}#{$i} {
+            grid-column-start: $i;
+        }
+    }
+}
+
+@mixin column-end($name: "") {
+    @for $i from 1 through $count-columns {
+        &-#{$name}#{$i} {
+            grid-column-end: $i;
+        }
+    }
+}
+
+.container {
+    @include container;
+    @media only screen and (min-width: $grid-sm-breakpoint) {
+        width: $sm-grid-width;
+    }
+    @media only screen and (min-width: $grid-md-breakpoint) {
+        width: $md-grid-width;
+    }
+    @media only screen and (min-width: $grid-lg-breakpoint) {
+        width: $lg-grid-width;
+    }
+    @media only screen and (min-width: $grid-xl-breakpoint) {
+        width: $xl-grid-width;
+    }
+    @media only screen and (min-width: $grid-xxl-breakpoint) {
+        width: $xxl-grid-width;
+    }
+}
+
+.col-span {
+    @include column-span();
+    @media only screen and (min-width: $grid-sm-breakpoint) {
+        @include column-span(sm-);
+    }
+    @media only screen and (min-width: $grid-md-breakpoint) {
+        @include column-span(md-);
+    }
+    @media only screen and (min-width: $grid-lg-breakpoint) {
+        @include column-span(lg-);
+    }
+    @media only screen and (min-width: $grid-xl-breakpoint) {
+        @include column-span(xl-);
+    }
+    @media only screen and (min-width: $grid-xxl-breakpoint) {
+        @include column-span(xxl-);
+    }
+}
+
+.col-start {
+    @include column-start();
+    @media only screen and (min-width: $grid-sm-breakpoint) {
+        @include column-start(sm-);
+    }
+    @media only screen and (min-width: $grid-md-breakpoint) {
+        @include column-start(md-);
+    }
+    @media only screen and (min-width: $grid-lg-breakpoint) {
+        @include column-start(lg-);
+    }
+    @media only screen and (min-width: $grid-xl-breakpoint) {
+        @include column-start(xl-);
+    }
+    @media only screen and (min-width: $grid-xxl-breakpoint) {
+        @include column-start(xxl-);
+    }
+}
+
+.col-end {
+    @include column-end();
+    @media only screen and (min-width: $grid-sm-breakpoint) {
+        @include column-end(sm-);
+    }
+    @media only screen and (min-width: $grid-md-breakpoint) {
+        @include column-end(md-);
+    }
+    @media only screen and (min-width: $grid-lg-breakpoint) {
+        @include column-end(lg-);
+    }
+    @media only screen and (min-width: $grid-xl-breakpoint) {
+        @include column-end(xl-);
+    }
+    @media only screen and (min-width: $grid-xxl-breakpoint) {
+        @include column-end(xxl-);
+    }
+}
