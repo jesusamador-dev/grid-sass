@@ -1,15 +1,15 @@
 div:nth-child(6n+1) {
-  background: #ff6666;
-  height: 100px;
-}
-
-div:nth-child(6n+2) {
   background: #e600e6;
   height: 100px;
 }
 
+div:nth-child(6n+2) {
+  background: #ffc966;
+  height: 100px;
+}
+
 div:nth-child(6n+3) {
-  background: #00e600;
+  background: #ffff66;
   height: 100px;
 }
 
@@ -19,12 +19,12 @@ div:nth-child(6n+4) {
 }
 
 div:nth-child(6n+5) {
-  background: #ffc966;
+  background: #ff6666;
   height: 100px;
 }
 
 div:nth-child(6n+6) {
-  background: #00e600;
+  background: #6666ff;
   height: 100px;
 }
 
@@ -34,17 +34,17 @@ div:nth-child(6n+7) {
 }
 
 div:nth-child(6n+8) {
-  background: #ff6666;
+  background: #e600e6;
   height: 100px;
 }
 
 div:nth-child(6n+9) {
-  background: #00e600;
+  background: #ffc966;
   height: 100px;
 }
 
 div:nth-child(6n+10) {
-  background: #ffff66;
+  background: #e600e6;
   height: 100px;
 }
 
@@ -54,7 +54,7 @@ div:nth-child(6n+11) {
 }
 
 div:nth-child(6n+12) {
-  background: #ff6666;
+  background: #ffff66;
   height: 100px;
 }
 
